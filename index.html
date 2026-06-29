@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Button</title>
+<title>Love Letter</title>
 
 <style>
+
 body{
     margin:0;
     height:100vh;
@@ -13,9 +14,35 @@ body{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    font-family:Arial,sans-serif;
     background:#ffe6ef;
+    font-family:Arial,sans-serif;
 }
+
+/* Envelope */
+
+.envelope{
+    position:relative;
+    width:220px;
+    height:140px;
+    background:#ff8fb1;
+    border-radius:8px;
+    margin-bottom:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.envelope::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:75px solid #ffb6c9;
+}
+
+/* Button */
 
 button{
     padding:15px 35px;
@@ -25,32 +52,49 @@ button{
     background:#ff4f88;
     color:white;
     cursor:pointer;
+    transition:.3s;
 }
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Note */
 
 #note{
     margin-top:30px;
-    font-size:30px;
-    color:#ff4f88;
+    padding:20px;
+    width:260px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
     display:none;
+    text-align:center;
+    font-size:22px;
+    color:#ff4f88;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
-<button id="btn">Click Me ❤️</button>
+<div class="envelope"></div>
 
-<div id="note">Hello! 👋💕</div>
+<button id="btn">💌 Click Me</button>
+
+<div id="note">
+Hello! ❤️
+</div>
 
 <script>
 
-const btn = document.getElementById("btn");
-const note = document.getElementById("note");
+const btn=document.getElementById("btn");
+const note=document.getElementById("note");
 
-btn.addEventListener("click", function(){
+btn.addEventListener("click",function(){
 
-    note.style.display = "block";
+note.style.display="block";
 
 });
 
