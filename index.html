@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Love ❤️</title>
+
+<title>For Shiraz ❤️</title>
 
 <style>
 
@@ -30,6 +32,7 @@ overflow:hidden;
 position:fixed;
 inset:0;
 pointer-events:none;
+overflow:hidden;
 }
 
 .heart{
@@ -40,7 +43,7 @@ animation:float 6s linear forwards;
 @keyframes float{
 
 0%{
-transform:translateY(100vh);
+transform:translateY(100vh) scale(.5);
 opacity:0;
 }
 
@@ -49,7 +52,7 @@ opacity:1;
 }
 
 100%{
-transform:translateY(-120px);
+transform:translateY(-150px) scale(1.2);
 opacity:0;
 }
 
@@ -58,105 +61,240 @@ opacity:0;
 /* Envelope */
 
 .envelope{
+
 position:relative;
-width:220px;
-height:140px;
+
+width:270px;
+
+height:170px;
+
 background:#ff8fb1;
-border-radius:8px;
+
+border-radius:10px;
+
 margin-bottom:30px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 }
 
 .envelope::before{
+
 content:"";
+
 position:absolute;
+
 top:0;
+
 left:0;
-border-left:110px solid transparent;
-border-right:110px solid transparent;
-border-top:75px solid #ffb6c9;
+
+border-left:135px solid transparent;
+
+border-right:135px solid transparent;
+
+border-top:90px solid #ffb6c9;
+
+}
+
+.envelope-text{
+
+position:relative;
+
+z-index:2;
+
+color:white;
+
+font-weight:bold;
+
+text-align:center;
+
+line-height:1.6;
+
+padding:18px;
+
 }
 
 /* Buttons */
 
 .buttons{
+
 display:flex;
+
 gap:15px;
+
 flex-wrap:wrap;
+
 justify-content:center;
+
 }
 
 button{
+
 padding:14px 22px;
+
 border:none;
-border-radius:30px;
+
+border-radius:35px;
+
 background:#ff4f88;
+
 color:white;
+
 font-size:16px;
+
 cursor:pointer;
+
 transition:.3s;
+
+box-shadow:0 6px 15px rgba(255,79,136,.3);
+
 }
 
 button:hover{
-transform:scale(1.05);
+
+transform:scale(1.06);
+
 }
 
-/* Letter */
+/* Note */
 
 #note{
+
 display:none;
+
+position:relative;
+
 margin-top:30px;
-width:340px;
+
+width:430px;
+
+max-width:90%;
+
+max-height:400px;
+
+overflow-y:auto;
+
 background:white;
-padding:25px;
-border-radius:18px;
-text-align:center;
+
+padding:30px;
+
+border-radius:20px;
+
 box-shadow:0 10px 25px rgba(0,0,0,.15);
-animation:pop .4s ease;
+
+text-align:center;
+
+animation:popup .4s ease;
+
 }
 
-@keyframes pop{
+@keyframes popup{
 
 from{
+
 transform:scale(.8);
+
 opacity:0;
+
 }
 
 to{
+
 transform:scale(1);
+
 opacity:1;
+
 }
 
 }
 
 #note h2{
+
 color:#ff4f88;
+
 margin-bottom:15px;
+
 }
 
 #note p{
-line-height:1.7;
-color:#555;
+
 font-size:17px;
+
+line-height:1.8;
+
+color:#555;
+
+}
+
+.close{
+
+position:absolute;
+
+top:12px;
+
+right:18px;
+
+font-size:22px;
+
+cursor:pointer;
+
+color:#ff4f88;
+
+font-weight:bold;
+
 }
 
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="hearts"></div>
 
-<div class="envelope"></div>
+<div class="envelope">
+
+<div class="envelope-text">
+
+💌
+
+<br><br>
+
+To: <b>Shiraz ❤️</b>
+
+<br><br>
+
+Attention, Mr. Shiraz! 🚨
+
+<br>
+
+When are you planning to come back, sirrrrr???? 🥺
+
+<br><br>
+
+Because Maham has been waitingggggggggg... 💕
+
+</div>
+
+</div>
 
 <div class="buttons">
 
 <button id="yesBtn">
+
 💖 Yes, I wanna talk to you
+
 </button>
 
 <button id="noBtn">
+
 🥺 No, I don't wanna talk to you
+
 </button>
 
 </div>
@@ -164,30 +302,29 @@ font-size:17px;
 <div id="note"></div>
 
 <script>
+  // Floating Hearts
 
-// Floating Hearts
-
-const hearts=document.querySelector(".hearts");
+const hearts = document.querySelector(".hearts");
 
 function createHeart(){
 
-const heart=document.createElement("div");
+const heart = document.createElement("div");
 
-const emojis=["❤️","💕","💖","💗","💘"];
+const emojis = ["❤️","💕","💖","💗","💘"];
 
-heart.className="heart";
+heart.className = "heart";
 
-heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
 
-heart.style.left=Math.random()*100+"vw";
+heart.style.left = Math.random()*100 + "vw";
 
-heart.style.fontSize=(18+Math.random()*20)+"px";
+heart.style.fontSize = (18 + Math.random()*20) + "px";
 
-heart.style.animationDuration=(4+Math.random()*3)+"s";
+heart.style.animationDuration = (4 + Math.random()*3) + "s";
 
 hearts.appendChild(heart);
 
-setTimeout(()=>{
+setTimeout(function(){
 
 heart.remove();
 
@@ -200,15 +337,17 @@ setInterval(createHeart,350);
 
 // Buttons
 
-const yes=document.getElementById("yesBtn");
-const no=document.getElementById("noBtn");
-const note=document.getElementById("note");
+const yes = document.getElementById("yesBtn");
+const no = document.getElementById("noBtn");
+const note = document.getElementById("note");
 
-yes.onclick=function(){
+yes.onclick = function(){
 
-note.style.display="block";
+note.style.display = "block";
 
-note.innerHTML=`
+note.innerHTML = `
+
+<div class="close" onclick="document.getElementById('note').style.display='none'">✖</div>
 
 <h2>🥹❤️</h2>
 
@@ -218,7 +357,7 @@ note.innerHTML=`
 
 <br><br>
 
-Good choice! 💕
+Good choice!! 💕
 
 <br><br>
 
@@ -238,7 +377,7 @@ Alsooooo... 😤💕
 
 <br><br>
 
-<b>I literally made this whole website just for you!</b>
+<b>I literally made this whole website just for you!!</b>
 
 <br><br>
 
@@ -248,46 +387,104 @@ Just look at my effortssssss, sirrrrrrrr. 🥹❤️
 
 I spent my time making something special just to make you smile.
 
-The least you can do is come back, apologize, and admire my coding skills. 😌💻💕
+The least you can do is come back, apologize, admire my coding skills, and give me the biggest hug. 😌💻💕
 
 <br><br>
 
-Now come back because someone has been waitingggggggggg for you. 🥺❤️
+I've been waitingggggggggg for you.
+
+<br><br>
+
+So don't make your future wife wait any longer. 🥺❤️
 
 <br><br>
 
 Love,
 
+<br><br>
+
 <b>Maham 🤍</b>
 
 </p>
+
 `;
 
 }
 
-no.onclick=function(){
 
-note.style.display="block";
+no.onclick = function(){
 
-note.innerHTML=`
+note.style.display = "block";
+
+note.innerHTML = `
+
+<div class="close" onclick="document.getElementById('note').style.display='none'">✖</div>
 
 <h2>😤❤️</h2>
 
 <p>
 
-Nope!!
+<b>Attention, Mr. Shiraz! 🚨</b>
 
 <br><br>
 
-That isn't actually one of your choices.
+Nice try... 😌
 
 <br><br>
 
-You're talking to me anyway because I miss you way too much.
+But that wasn't actually a choice.
 
 <br><br>
 
-Now come here, apologize, and let me love you. 🥺💕
+You're still talking to Maham because she has been waitingggggggggg for you. 🥺💕
+
+<br><br>
+
+And excuse me...
+
+<br><br>
+
+<b>I MADE YOU A WHOLE WEBSITE!! 😭❤️</b>
+
+<br><br>
+
+Just look at my effortssssss, sirrrrrrrr.
+
+<br><br>
+
+You really thought you could press "No" after all this? 😂
+
+<br><br>
+
+Absolutely not.
+
+<br><br>
+
+Now stop being stubborn.
+
+<br>
+
+Come back.
+
+<br>
+
+Apologize.
+
+<br>
+
+Collect your hug.
+
+<br><br>
+
+In that exact order. 😌🤍
+
+<br><br>
+
+Love,
+
+<br><br>
+
+<b>Maham ❤️</b>
 
 </p>
 
@@ -298,4 +495,5 @@ Now come here, apologize, and let me love you. 🥺💕
 </script>
 
 </body>
+
 </html>
